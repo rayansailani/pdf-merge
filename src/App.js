@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { PDFDocument } from "pdf-lib";
-import { Input } from '@mui/material';
 import "./App.css"
+import NavBar from "./Components/Navbar";
+import DescriptionCard from "./Components/DescriptionCard";
+import FileUpload from "./Components/FileUploadAndConvert";
 
 const App = () => {
   const [fileState, setFileState] = useState();
@@ -69,13 +71,18 @@ const App = () => {
     }
   };
   return (
-    <div className="container">
-      <input type="file" multiple onChange={handleFileUpload} />
+    // <div className="container">
+    //   <input type="file" multiple onChange={handleFileUpload} />
       
-      {fileNames.length > 0 && fileNames.map(name => {
-        return <p key={name}>{name}</p>
-      })}
-      <button onClick={downloadDocument}>Download</button>
+    //   {fileNames.length > 0 && fileNames.map(name => {
+    //     return <p key={name}>{name}</p>
+    //   })}
+    //   <button onClick={downloadDocument}>Download</button>
+    // </div>
+    <div>
+      <NavBar />
+      <DescriptionCard />
+      <FileUpload />
     </div>
   );
 };
